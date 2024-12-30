@@ -7,7 +7,7 @@ const getEvents = asyncHandler(async(req,res)=>{
 });
 
 const getAllEvents = asyncHandler(async(req,res)=>{
-    const registrations = await Registration.find({user_id: req.user.id});
+    const registrations = await Registration.find();
     res.status(200).json(registrations);
 });
 
