@@ -33,6 +33,11 @@ const regSchema = mongoose.Schema({
     enddate:{
         type:Date,
         required:[true,"Please enter the end date"]
+    },
+    status:{
+        type:"String",
+        enum:["Approved","Rejected","Pending"],
+        default:"Pending"
     }
 },{
     timestamps:true,

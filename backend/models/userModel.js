@@ -5,6 +5,7 @@ const userSchema = mongoose.Schema({
     {
         type:String,
         required:[true,"Please enter the name"]
+       
     },
 
     email:{
@@ -17,8 +18,14 @@ const userSchema = mongoose.Schema({
     {
         type:String,
         required:[true,"Please enter the valid password"]
-    }
+    },
+    
+    role: 
+    { type: String, 
+        enum: ["student", "admin"], 
+        default: "student" }
 },
+
 {
     timestamps:true
 })

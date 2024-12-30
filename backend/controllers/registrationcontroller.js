@@ -6,6 +6,11 @@ const getEvents = asyncHandler(async(req,res)=>{
     res.status(200).json(registrations);
 });
 
+const getAllEvents = asyncHandler(async(req,res)=>{
+    const registrations = await Registration.find({user_id: req.user.id});
+    res.status(200).json(registrations);
+});
+
 const createEvents = asyncHandler(async(req,res)=>{
    
     const {name,rollnumber,eventname,organiser,weblink,startdate,enddate,level} = req.body;
@@ -53,4 +58,8 @@ const getEvent = asyncHandler(async(req,res)=>{
     res.status(200).json(registrations);
 });
 
-module.exports = {getEvent,getEvents,deleteEvents,updateEvents,createEvents};
+
+
+
+
+module.exports = {getEvent,getEvents,deleteEvents,updateEvents,createEvents,getAllEvents};
