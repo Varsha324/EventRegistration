@@ -2,7 +2,7 @@ const asyncHandler= require("express-async-handler");
 const Registration = require("../models/regModels");
 
 const getEvents = asyncHandler(async(req,res)=>{
-    const registrations = await Registration.find();
+    const registrations = await Registration.find({user_id: req.user.id});
     res.status(200).json(registrations);
 });
 
@@ -14,7 +14,7 @@ const createEvents = asyncHandler(async(req,res)=>{
         throw new Error("All fields are mandatory");
     }
     const registrations = await  Registration.create({
-        name,rollnumber,eventname,organiser,weblink,startdate,enddate,level
+        name,rollnumber,eventname,organiser,weblink,startdate,enddate,level,user_id: req.user.id
     });
     res.status(201).json(registrations);
 });
