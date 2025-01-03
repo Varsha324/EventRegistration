@@ -13,13 +13,13 @@ const getAllEvents = asyncHandler(async(req,res)=>{
 
 const createEvents = asyncHandler(async(req,res)=>{
    
-    const {name,rollnumber,eventname,organiser,weblink,startdate,enddate,level} = req.body;
-    if(!name||!rollnumber||!eventname||!organiser||!weblink||!startdate||!enddate||!level){
+    const {name,rollnumber,eventname,organiser,weblink,startdate,enddate} = req.body;
+    if(!name||!rollnumber||!eventname||!organiser||!weblink||!startdate||!enddate){
         res.status(400);
         throw new Error("All fields are mandatory");
     }
     const registrations = await  Registration.create({
-        name,rollnumber,eventname,organiser,weblink,startdate,enddate,level,user_id: req.user.id
+        name,rollnumber,eventname,organiser,weblink,startdate,enddate,user_id: req.user.id
     });
     res.status(201).json(registrations);
 });
@@ -58,8 +58,27 @@ const getEvent = asyncHandler(async(req,res)=>{
     res.status(200).json(registrations);
 });
 
+const approveOrRejectEvent = asyncHandler(async (req, res) => {
+    const { status } = req.body;
+    const validStatuses = ["Approved", "Rejected", "Pending"];
+    
+    if (!validStatuses.includes(status)) {
+        res.status(400);
+        throw new Error("Invalid status");
+    }
+
+    const event = await Registration.findById(req.params.id);
+    if (!event) {
+        res.status(404);
+        throw new Error("Event not found");
+    }
+
+    event.status = status;
+    const updatedEvent = await event.save();
+
+    res.status(200).json(updatedEvent);
+});
 
 
 
-
-module.exports = {getEvent,getEvents,deleteEvents,updateEvents,createEvents,getAllEvents};
+module.exports = {getEvent,getEvents,deleteEvents,updateEvents,createEvents,getAllEvents,approveOrRejectEvent};

@@ -1,10 +1,15 @@
 const mongoose = require("mongoose");
-
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 const regSchema = mongoose.Schema({
     user_id:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         ref:"User"
+    },
+    registration_id: {  
+        type: Number,
+        unique: true, 
+        
     },
     name:{
         type:String,
@@ -43,5 +48,7 @@ const regSchema = mongoose.Schema({
     timestamps:true,
 }
 );
+
+regSchema.plugin(AutoIncrement, { inc_field: 'registration_id', start_seq: 1 });
 
 module.exports = mongoose.model("Register",regSchema);

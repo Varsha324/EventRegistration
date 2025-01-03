@@ -3,7 +3,7 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const signUpUser = asyncHandler(async (req,res)=>{
-    const {name,email,password} = req.body;
+    const {name,email,password,role} = req.body;
     if(!name||!email||!password){
         res.status(400);
         throw new Error("All fields are mandatory");
@@ -22,8 +22,9 @@ const signUpUser = asyncHandler(async (req,res)=>{
         name,
         email,
         password: hashedPassword,
-        
-    })
+        role: req.body.role || "student"
+    });
+    
     if(user){
         res.status(201).json({_id : user.id, email:user.email})
     }
@@ -49,12 +50,13 @@ const loginUser = asyncHandler(async(req,res)=>{
             user:{
                 name : user.name,
                 email: user.email,
-                id : user.id
+                id : user.id,
+                role: user.role
             },
         },process.env.ACCESS_TOKEN_SECRET,
-        {expiresIn: "15m"}
+        {expiresIn: "30m"}
     )
-        res.status(200).json({accessToken})
+        res.status(200).json({accessToken, role:user.role})
      }
      else{
         res.status(401)
