@@ -1,96 +1,92 @@
-.iraverification-top{
-    background-color: rgb(122, 224, 234);
-    padding: 20px;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
+.iraverification-top {
+  background-color: rgb(122, 224, 234);
+  padding: 20px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }
-.iraverification-container{
-    display: flex;
-    height: 100vh;
-    
+.iraverification-container {
+  display: flex;
+  height: 100vh;
 }
-.iraverification-left{
-    width:18%;
-    background-color: rgb(55, 194, 206);
-
+.iraverification-left {
+  width: 18%;
+  background-color: rgb(55, 194, 206);
 }
-.iraverification-left ul{
-    list-style: none;
-    padding: 20px;
+.iraverification-left ul {
+  list-style: none;
+  padding: 20px;
 }
 .iraverification-left ul li {
-    margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
-.iraverification-left ul li a{
-    font-family: Arial,sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-    
+.iraverification-left ul li a {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
 }
-.iraverification-right{
-    width:82%;
-   } 
-   .iraverification-right-top{
-    display: flex;
-    justify-content: space-between;
-   }
+.iraverification-right {
+  width: 82%;
+}
+.iraverification-right-top {
+  display: flex;
+  justify-content: space-between;
+}
 
-   .iraverification-right-top input{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin: 20px;
-   }  
-.iraverification-right-top h1{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 20px;
-    margin: 20px;
+.iraverification-right-top input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 20px;
+}
+.iraverification-right-top h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 20px;
 }
 
 .iraverification-right-container table {
-    width: 97%;
-    border-collapse: collapse;
-    margin: 35px 25px;
-    font-size: 16px;
-    text-align: left;
-  }
-  
-  .iraverification-right-container table thead tr {
-    background-color: rgb(55, 194, 206);
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
-  }
-  
-  .iraverification-right-container table th,
-  .iraverification-right-container table td {
-    padding: 12px 15px;
-    border: 1px solid #dddddd;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .iraverification-right-container table tbody tr {
-    border-bottom: 1px solid #dddddd;
-  }
-  
-  .iraverification-right-container table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-  }
-  
-  .iraverification-right-container table tbody tr:last-of-type {
-    border-bottom: 2px solid rgb(55, 194, 206);
-  }
-  
-  .iraverification-right-container table tbody tr:hover {
-    background-color: #f1f1f1;
-    cursor: pointer;
-  }
-  
+  width: 97%;
+  border-collapse: collapse;
+  margin: 35px 25px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.iraverification-right-container table thead tr {
+  background-color: rgb(55, 194, 206);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.iraverification-right-container table th,
+.iraverification-right-container table td {
+  padding: 12px 15px;
+  border: 1px solid #dddddd;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.iraverification-right-container table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.iraverification-right-container table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.iraverification-right-container table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(55, 194, 206);
+}
+
+.iraverification-right-container table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}

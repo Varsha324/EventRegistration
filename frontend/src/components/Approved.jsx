@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Approved.css";
-import { getAllEvents } from "../Api"; // Assuming this fetches all events
+import { getAllEvents } from "../Api"; 
 
 const Approved = () => {
   const [approvedEvents, setApprovedEvents] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Fetch approved events
+  
   const fetchApprovedEvents = async () => {
     try {
-      const response = await getAllEvents(); // Fetch all events from backend
-      const approved = response.data.filter((event) => event.status === "Approved"); // Filter only approved events
+      const response = await getAllEvents(); 
+      const approved = response.data.filter((event) => event.status === "Approved"); 
       setApprovedEvents(approved);
     } catch (error) {
       console.error("Error fetching approved events", error);
@@ -21,7 +21,7 @@ const Approved = () => {
     fetchApprovedEvents();
   }, []);
 
-  // Filter approved events based on search input
+
   const filteredApprovedEvents = approvedEvents.filter(
     (event) =>
       event.eventname.toLowerCase().includes(search.toLowerCase()) ||
@@ -35,7 +35,7 @@ const Approved = () => {
           <h1>APPROVED EVENTS</h1>
           <input
             type="text"
-            placeholder="Search by event name or organiser"
+            placeholder="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

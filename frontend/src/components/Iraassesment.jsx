@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { createAssesments } from '../Api'; // Import the API function
-import './Iraassesment.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { createAssesments } from "../Api";
+import "./Iraassesment.css";
 
 const Iraassesment = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    rollnumber: '',
-    event: '',
-    date: '',
-    time: '',
+    name: "",
+    rollnumber: "",
+    event: "",
+    date: "",
+    time: "",
   });
   const [message, setMessage] = useState("");
 
@@ -18,39 +18,35 @@ const Iraassesment = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => { 
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Ensure the time is in a 24-hour format
-      const [startTime] = formData.time.split("-").map(time => time.trim());
-      const [hours, minutes] = startTime.split(":").map(part => part.trim());
+      const [startTime] = formData.time.split("-").map((time) => time.trim());
+      const [hours, minutes] = startTime.split(":").map((part) => part.trim());
 
-      // Combine date and time into a valid ISO string (YYYY-MM-DDTHH:mm:ss)
       const combinedDateTimeString = `${formData.date}T${hours}:${minutes}:00`;
 
       console.log("Combined Date-Time:", combinedDateTimeString);
 
       const combinedDateTime = new Date(combinedDateTimeString);
 
-      // Validate the combined date-time is valid
       if (isNaN(combinedDateTime.getTime())) {
         throw new Error("Invalid date-time combination.");
       }
 
-      // Prepare the payload with the correct time format
       const payload = {
         ...formData,
-        time: combinedDateTime.toISOString(), // Convert to ISO format
+        time: combinedDateTime.toISOString(),
       };
 
-      await createAssesments(payload); // Send the updated payload to the backend
+      await createAssesments(payload);
       setMessage("Event created successfully!");
       setFormData({
-        name: '',
-        rollnumber: '',
-        event: '',
-        date: '',
-        time: '',
+        name: "",
+        rollnumber: "",
+        event: "",
+        date: "",
+        time: "",
       });
     } catch (error) {
       console.error("Error during registration:", error);
@@ -64,14 +60,30 @@ const Iraassesment = () => {
       <div className="assesment-container">
         <div className="assesment-left">
           <ul>
-            <li><Link to="/student">DASHBOARD</Link></li>
-            <li><Link to="/register">REGISTRATION</Link></li>
-            <li><Link to="/status">EVENT STATUS</Link></li>
-            <li><Link to="/approved">APPROVED EVENTS</Link></li>
-            <li><Link to="/rejected">REJECTED EVENTS</Link></li>
-            <li><Link to="/iraassesment">IRA REGISTRATION</Link></li>
-            <li><Link to="/irastatus">IRA STATUS</Link></li>
-            <li><Link to="/">LOGOUT</Link></li>
+            <li>
+              <Link to="/student">DASHBOARD</Link>
+            </li>
+            <li>
+              <Link to="/register">REGISTRATION</Link>
+            </li>
+            <li>
+              <Link to="/status">EVENT STATUS</Link>
+            </li>
+            <li>
+              <Link to="/approved">APPROVED EVENTS</Link>
+            </li>
+            <li>
+              <Link to="/rejected">REJECTED EVENTS</Link>
+            </li>
+            <li>
+              <Link to="/iraassesment">IRA REGISTRATION</Link>
+            </li>
+            <li>
+              <Link to="/irastatus">IRA STATUS</Link>
+            </li>
+            <li>
+              <Link to="/">LOGOUT</Link>
+            </li>
           </ul>
         </div>
         <div className="assesment-right">
@@ -117,7 +129,9 @@ const Iraassesment = () => {
                 value={formData.time}
                 onChange={handleChange}
               >
-                <option value="" disabled>Select Time Slot</option>
+                <option value="" disabled>
+                  Select Time Slot
+                </option>
                 <option value="09:00-10:00">09:00 – 10:00</option>
                 <option value="11:00-12:00">11:00 – 12:00</option>
                 <option value="14:00-15:00">14:00 – 15:00</option>

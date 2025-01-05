@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getEvents } from "../Api"; // Ensure this path is correct
+import { getEvents } from "../Api";
 import "./Status.css";
 
 const Status = () => {
-  const [events, setEvents] = useState([]); // State to hold event data
-  const [search, setSearch] = useState(""); // State for search input
+  const [events, setEvents] = useState([]);
+  const [search, setSearch] = useState("");
 
   const fetchEvents = async () => {
     try {
-      const userId = localStorage.getItem("userId"); // Ensure `userId` is stored after login
+      const userId = localStorage.getItem("userId");
       const response = await getEvents(userId);
-      setEvents(response.data); // Update state with fetched events
+      setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
     }
   };
 
   useEffect(() => {
-    fetchEvents(); // Fetch events on component mount
+    fetchEvents();
   }, []);
 
   const filteredEvents = events.filter((event) =>
@@ -46,12 +46,12 @@ const Status = () => {
             <li>
               <Link to="/rejected">REJECTED EVENTS</Link>
             </li>
-             <li>
-                        <Link to="/iraassesment">IRA REGISTRATION</Link>
-                      </li>
-                      <li>
-                        <Link to="/irastatus">IRA STATUS</Link>
-                      </li>
+            <li>
+              <Link to="/iraassesment">IRA REGISTRATION</Link>
+            </li>
+            <li>
+              <Link to="/irastatus">IRA STATUS</Link>
+            </li>
             <li>
               <Link to="/">LOGOUT</Link>
             </li>
@@ -59,7 +59,7 @@ const Status = () => {
         </div>
         <div className="status-right">
           <div className="status-right-top">
-            <h1>STATUS</h1>
+            <h1>REGISTRATION STATUS</h1>
             <input
               type="text"
               placeholder="Search"

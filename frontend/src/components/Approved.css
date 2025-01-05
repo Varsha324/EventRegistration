@@ -1,51 +1,56 @@
-.approved{
-    height:100vh;
+.approved {
+  height: 100vh;
 }
-.approved-right-top{
-    display: flex;
-    justify-content: space-between;
+.approved-right-top {
+  display: flex;
+  justify-content: space-between;
 }
 
-.approved-right-top input{  
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin: 20px 50px;
+.approved-right-top input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 20px 50px;
 }
-.approved-right-top h1{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    margin: 20px ;
-    padding: 20px 40px;
+.approved-right-top h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 20px 40px;
 }
-.approved-container table{
-    width: 97%;
-    border-collapse: collapse;
-    margin: 35px 25px;
-    text-align: left;
+.approved-container table {
+  width: 97%;
+  border-collapse: collapse;
+  margin: 35px 25px;
+  text-align: left;
 }
-.approved-container table thead tr{
-    background-color: rgb(55, 194, 206);
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+.approved-container table thead tr {
+  background-color: rgb(55, 194, 206);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .approved-container td,
-.approved-container th{
-    padding: 12px 15px;
-    border: 1px solid #dddddd;
-    font-family: Arial, Helvetica, sans-serif;
-   
+.approved-container th {
+  padding: 12px 15px;
+  border: 1px solid #dddddd;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .approved-container table tbody tr {
-    border-bottom: 1px solid #dddddd;
-  }
-  .approved-conatner table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-  }
-  
+  border-bottom: 1px solid #dddddd;
+}
+.approved-container table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.approved-right-container table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.approved-right-container table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}

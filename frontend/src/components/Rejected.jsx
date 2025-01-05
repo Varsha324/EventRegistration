@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Rejected.css";
-import { getAllEvents } from "../Api"; // Assuming this fetches all events
+import { getAllEvents } from "../Api";
 
 const Rejected = () => {
   const [rejectedEvents, setRejectedEvents] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Fetch rejected events
   const fetchRejectedEvents = async () => {
     try {
-      const response = await getAllEvents(); // Fetch all events
-      const rejected = response.data.filter((event) => event.status === "Rejected"); // Filter only rejected events
+      const response = await getAllEvents();
+      const rejected = response.data.filter(
+        (event) => event.status === "Rejected"
+      );
       setRejectedEvents(rejected);
     } catch (error) {
       console.error("Error fetching rejected events", error);
@@ -21,7 +22,6 @@ const Rejected = () => {
     fetchRejectedEvents();
   }, []);
 
-  // Filter rejected events based on search input
   const filteredRejectedEvents = rejectedEvents.filter(
     (event) =>
       event.eventname.toLowerCase().includes(search.toLowerCase()) ||
@@ -35,7 +35,7 @@ const Rejected = () => {
           <h1>REJECTED EVENTS</h1>
           <input
             type="text"
-            placeholder="Search by event name or organiser"
+            placeholder="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -61,7 +61,11 @@ const Rejected = () => {
                   <td>{event.eventname}</td>
                   <td>{event.organiser}</td>
                   <td>
-                    <a href={event.weblink} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={event.weblink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {event.weblink}
                     </a>
                   </td>

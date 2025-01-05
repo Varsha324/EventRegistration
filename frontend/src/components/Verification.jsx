@@ -7,11 +7,10 @@ const Verification = () => {
   const [events, setAllEvents] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Fetch all events on component load
   const fetchEvents = async () => {
     try {
       const response = await getAllEvents();
-      setAllEvents(response.data); // Update state with fetched events
+      setAllEvents(response.data);
     } catch (error) {
       console.error("Error fetching events", error);
     }
@@ -21,13 +20,11 @@ const Verification = () => {
     fetchEvents();
   }, []);
 
-  // Handle status change for an event
   const handleStatusChange = async (eventId, status) => {
     try {
       const response = await approveOrRejectEvent(eventId, { status });
       const updatedEvent = response.data;
 
-      // Update the local state with the modified event
       setAllEvents((prevEvents) =>
         prevEvents.map((event) =>
           event._id === updatedEvent._id ? updatedEvent : event
@@ -38,7 +35,6 @@ const Verification = () => {
     }
   };
 
-  // Filter events based on search input
   const filteredEvents = events.filter(
     (event) =>
       event.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -56,7 +52,7 @@ const Verification = () => {
               <Link to="/admin">DASHBOARD</Link>
             </li>
             <li>
-              <Link to="/verification">VERIFICATION</Link>
+              <Link to="/verification">EVENT VERIFICATION</Link>
             </li>
             <li>
               <Link to="/approved">APPROVED EVENTS</Link>
@@ -74,10 +70,10 @@ const Verification = () => {
         </div>
         <div className="verification-right">
           <div className="verification-right-top">
-            <h1>VERIFICATION</h1>
+            <h1>EVENT VERIFICATION</h1>
             <input
               type="text"
-              placeholder="Search by name, roll number, or event name"
+              placeholder="Search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -95,7 +91,6 @@ const Verification = () => {
                   <th>START DATE</th>
                   <th>END DATE</th>
                   <th>STATUS</th>
-                 
                 </tr>
               </thead>
               <tbody>
@@ -129,7 +124,6 @@ const Verification = () => {
                         <option value="Rejected">Rejected</option>
                       </select>
                     </td>
-                    
                   </tr>
                 ))}
               </tbody>

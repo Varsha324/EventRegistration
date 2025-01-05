@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { createEvents } from "../Api"; // Ensure the correct path to your API file
+import { createEvents } from "../Api";
 import "./Registration.css";
 
 const Registration = () => {
@@ -24,7 +24,7 @@ const Registration = () => {
     e.preventDefault();
 
     try {
-      await createEvents(formData); // API call to create an event
+      await createEvents(formData);
       setMessage("Event created successfully!");
       setFormData({
         name: "",
@@ -61,12 +61,12 @@ const Registration = () => {
             <li>
               <Link to="/rejected">REJECTED EVENTS</Link>
             </li>
-             <li>
-                        <Link to="/iraassesment">IRA REGISTRATION</Link>
-                      </li>
-                      <li>
-                        <Link to="/irastatus">IRA STATUS</Link>
-                      </li>
+            <li>
+              <Link to="/iraassesment">IRA REGISTRATION</Link>
+            </li>
+            <li>
+              <Link to="/irastatus">IRA STATUS</Link>
+            </li>
             <li>
               <Link to="/">LOGOUT</Link>
             </li>

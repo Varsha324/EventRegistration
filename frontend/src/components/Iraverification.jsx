@@ -8,14 +8,12 @@ const Iraverification = () => {
   const [remarks, setRemarks] = useState({});
   const [search, setSearch] = useState("");
 
-  // Fetch assessments on component mount
   useEffect(() => {
     const fetchAssessments = async () => {
       try {
         const response = await getAllAssesment();
         setAssessments(response.data);
 
-        // Initialize remarks state with the current remarks from the backend
         const initialRemarks = {};
         response.data.forEach((assessment) => {
           initialRemarks[assessment._id] = assessment.remarks || "";
@@ -28,17 +26,22 @@ const Iraverification = () => {
     fetchAssessments();
   }, []);
 
-  // Handle status and remarks change
   const handleStatusChange = async (id, status) => {
     try {
       const remark = remarks[id] || "";
-      const response = await approveOrRejectAssesment(id, { status, remarks: remark });
+      const response = await approveOrRejectAssesment(id, {
+        status,
+        remarks: remark,
+      });
 
-      // Update state with the updated assessment from the backend
       setAssessments((prev) =>
         prev.map((assessment) =>
           assessment._id === id
-            ? { ...assessment, status: response.data.status, remarks: response.data.remarks }
+            ? {
+                ...assessment,
+                status: response.data.status,
+                remarks: response.data.remarks,
+              }
             : assessment
         )
       );
@@ -47,12 +50,10 @@ const Iraverification = () => {
     }
   };
 
-  // Handle remark input change (only updates the local state for now)
   const handleRemarkChange = (id, value) => {
     setRemarks((prev) => ({ ...prev, [id]: value }));
   };
 
-  // Filter assessments based on search input
   const filteredAssessments = assessments.filter(
     (assessment) =>
       assessment.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -62,7 +63,9 @@ const Iraverification = () => {
 
   return (
     <div>
-      <div className="iraverification-top">EXTERNAL EVENT MANAGEMENT PORTAL</div>
+      <div className="iraverification-top">
+        EXTERNAL EVENT MANAGEMENT PORTAL
+      </div>
       <div className="iraverification-container">
         <div className="iraverification-left">
           <ul>
@@ -70,7 +73,7 @@ const Iraverification = () => {
               <Link to="/admin">DASHBOARD</Link>
             </li>
             <li>
-              <Link to="/verification">VERIFICATION</Link>
+              <Link to="/verification">EVENT VERIFICATION</Link>
             </li>
             <li>
               <Link to="/approved">APPROVED EVENTS</Link>
