@@ -21,5 +21,9 @@ export const updateEvents = (id,data) => API.put(`/api/register/${id}`,data);
 export const deleteEvents = (id) => API.delete(`/api/register/${id}`);
 export const getEvent = (id) => API.get(`/api/register/${id}`);
 export const approveOrRejectEvent = (id, data) => API.put(`/api/register/${id}`, data);
-
+export const getAllAssesment = ()=>API.get("/api/assesment/all")
+export const getAssesment = ()=>API.get("/api/assesment/")
+export const updateAssesment=(id,data)=>API.put(`/api/assesment/${id}`,data)
+export const createAssesments=(data)=>API.post("/api/assesment/",data)
+export const approveOrRejectAssesment = (id, data) => API.put(`/api/assesment/${id}`, data);
 

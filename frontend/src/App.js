@@ -9,6 +9,9 @@ import Rejected from './components/Rejected';
 import Registration from './components/Registration';
 import Admin from './components/Admin';
 import Verification from './components/Verification';
+import Iraassesment from './components/Iraassesment';
+import Irastatus from './components/Irastatus';
+import Iraverification from './components/Iraverification';
 const App = () => {
   return (
     <Router>
@@ -21,7 +24,11 @@ const App = () => {
         <Route path ="/approved" element={<Approved/>}/>
         <Route path = "/rejected" element={<Rejected/>}/>
         <Route path="/admin" element={<Admin/>}/>
-        <Route path ="verification" element ={<Verification/>}/>
+        <Route path ="/verification" element ={<Verification/>}/>
+        <Route path = "/iraassesment" element = {<Iraassesment/>}/>
+        <Route path = "/irastatus" element = {<Irastatus/>}/>
+        <Route path = "/iraverification" element ={<Iraverification/>}/>
+       
       </Routes>
     </Router>
   )

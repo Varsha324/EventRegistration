@@ -53,7 +53,7 @@ const Registration = () => {
               <Link to="/register">REGISTRATION</Link>
             </li>
             <li>
-              <Link to="/status">STATUS</Link>
+              <Link to="/status">EVENT STATUS</Link>
             </li>
             <li>
               <Link to="/approved">APPROVED EVENTS</Link>
@@ -61,6 +61,12 @@ const Registration = () => {
             <li>
               <Link to="/rejected">REJECTED EVENTS</Link>
             </li>
+             <li>
+                        <Link to="/iraassesment">IRA REGISTRATION</Link>
+                      </li>
+                      <li>
+                        <Link to="/irastatus">IRA STATUS</Link>
+                      </li>
             <li>
               <Link to="/">LOGOUT</Link>
             </li>

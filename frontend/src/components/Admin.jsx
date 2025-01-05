@@ -51,6 +51,7 @@ const Admin = () => {
             <li>
                 <Link to ="/rejected">REJECTED EVENTS</Link>
             </li>
+            <li><Link to="/iraverification">IRA VERIFICATION</Link></li>
             <li>
                 <Link to ="/">LOGOUT</Link>
             </li>
