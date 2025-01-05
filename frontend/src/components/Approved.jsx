@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Approved.css";
-import { getAllEvents } from "../Api"; 
+import { getAllEvents } from "../Api";
 
 const Approved = () => {
   const [approvedEvents, setApprovedEvents] = useState([]);
   const [search, setSearch] = useState("");
 
-  
   const fetchApprovedEvents = async () => {
     try {
-      const response = await getAllEvents(); 
-      const approved = response.data.filter((event) => event.status === "Approved"); 
+      const response = await getAllEvents();
+      const approved = response.data.filter(
+        (event) => event.status === "Approved"
+      );
       setApprovedEvents(approved);
     } catch (error) {
       console.error("Error fetching approved events", error);
@@ -20,7 +21,6 @@ const Approved = () => {
   useEffect(() => {
     fetchApprovedEvents();
   }, []);
-
 
   const filteredApprovedEvents = approvedEvents.filter(
     (event) =>
@@ -60,7 +60,11 @@ const Approved = () => {
                   <td>{event.eventname}</td>
                   <td>{event.organiser}</td>
                   <td>
-                    <a href={event.weblink} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={event.weblink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {event.weblink}
                     </a>
                   </td>
