@@ -50,6 +50,7 @@
 .rules {
   max-width: 600px;
   max-height: 700px;
+  background-color: #f9f9f9;
   border: 2px solid #ccc;
   border-radius: 10px;
   box-shadow: 2px 2px 3px #c4c2c2;
