@@ -90,10 +90,10 @@
   background-color: #f1f1f1;
   cursor: pointer;
 }
-/* Target all buttons inside a table */
-table button {
-  background-color: #4caf50; /* Green background for example */
-  color: white; /* White text */
+
+.iraverification-table button {
+  background-color: #4caf50; 
+  color: white; 
   border: none;
   padding: 10px 20px;
   margin: 5px;
@@ -101,20 +101,19 @@ table button {
   cursor: pointer;
 }
 
-table button:hover {
-  background-color: #45a049; /* Darker green when hovered */
+.iraverification-table button:hover {
+  background-color: #45a049; 
 }
 
-/* Target specific buttons with text "Approve" or "Reject" */
-table button:first-of-type {
-  background-color: #4caf50; /* Green for "Approve" */
+.iraverification-table button:first-of-type {
+  background-color: #4caf50; 
 }
 
-table button:last-of-type {
-  background-color: #f44336; /* Red for "Reject" */
+.iraverification-table button:last-of-type {
+  background-color: #f44336; 
 }
 
-/* Specific column in case buttons are in a specific <td> */
-td button {
-  font-weight: bold; /* Makes the button text bold */
+
+.iraverification-td button {
+  font-weight: bold; 
 }
