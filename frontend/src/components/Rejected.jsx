@@ -51,7 +51,7 @@ const Rejected = () => {
                 <th>WEBSITE</th>
                 <th>START DATE</th>
                 <th>END DATE</th>
-                <th>REMARKS</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -71,7 +71,7 @@ const Rejected = () => {
                   </td>
                   <td>{new Date(event.startdate).toLocaleDateString()}</td>
                   <td>{new Date(event.enddate).toLocaleDateString()}</td>
-                  <td>{event.remarks || "No remarks provided"}</td>
+                  
                 </tr>
               ))}
               {filteredRejectedEvents.length === 0 && (

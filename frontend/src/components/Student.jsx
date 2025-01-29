@@ -12,7 +12,7 @@ const Student = () => {
               <Link to="/student">DASHBOARD</Link>
             </li>
             <li>
-              <Link to="/register">REGISTRATION</Link>
+              <Link to="/register">EVENT REGISTRATION</Link>
             </li>
             <li>
               <Link to="/status">EVENT STATUS</Link>
@@ -39,14 +39,14 @@ const Student = () => {
           <div className="rules">
             <h2>GUIDE LINES</h2>
             <ul>
-              <li>The sudent can register the events the wish to register.</li>
+              <li>The sudent can register the events they wish to register.</li>
               <li>They could view the registered events status . </li>
               <li>
                 They will also be able to see the approved and rejected events.
               </li>
               <li>
                 Kindly register to the events after verifying whether is present
-                in the approved and rejected list
+                in the approved and rejected list.
               </li>
             </ul>
           </div>

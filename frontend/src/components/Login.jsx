@@ -41,6 +41,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      <h2>EXTERNAL EVENT MANAGEMENT PORTAL</h2>
       <h1>Login</h1>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>

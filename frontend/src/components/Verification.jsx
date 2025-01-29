@@ -113,17 +113,31 @@ const Verification = () => {
                     <td>{new Date(event.startdate).toLocaleDateString()}</td>
                     <td>{new Date(event.enddate).toLocaleDateString()}</td>
                     <td>
-                      <select
-                        value={event.status}
-                        onChange={(e) =>
-                          handleStatusChange(event._id, e.target.value)
-                        }
-                      >
-                        <option value="Pending">Pending</option>
-                        <option value="Approved">Approved</option>
-                        <option value="Rejected">Rejected</option>
-                      </select>
-                    </td>
+  <select
+    value={event.status}
+    onChange={(e) => handleStatusChange(event._id, e.target.value)}
+    style={{
+      backgroundColor:
+        event.status === "Pending"
+          ? "lightyellow"
+          : event.status === "Approved"
+          ? "lightgreen"
+          : "lightcoral",
+      color: "black",
+    }}
+  >
+    <option value="Pending" style={{ backgroundColor: "lightyellow" }}>
+      Pending
+    </option>
+    <option value="Approved" style={{ backgroundColor: "lightgreen" }}>
+      Approved
+    </option>
+    <option value="Rejected" style={{ backgroundColor: "lightcoral" }}>
+      Rejected
+    </option>
+  </select>
+</td>
+
                   </tr>
                 ))}
               </tbody>

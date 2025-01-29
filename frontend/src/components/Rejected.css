@@ -1,6 +1,7 @@
-.rected {
+.rejected {
   height: 100vh;
   width: 100%;
+  background-color: #f9f9f9;
 }
 .rejected-top {
   display: flex;
@@ -49,10 +50,18 @@
 .rejected-container table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
-.rejected-right-container table tbody tr {
+.rejected-container table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
 
-.rejected-right-container table tbody tr:nth-of-type(even) {
+.rejected-container table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
+}
+.rejected-container table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(55, 194, 206);
+}
+
+.rejected-container table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
 }

@@ -90,3 +90,31 @@
   background-color: #f1f1f1;
   cursor: pointer;
 }
+/* Target all buttons inside a table */
+table button {
+  background-color: #4caf50; /* Green background for example */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table button:hover {
+  background-color: #45a049; /* Darker green when hovered */
+}
+
+/* Target specific buttons with text "Approve" or "Reject" */
+table button:first-of-type {
+  background-color: #4caf50; /* Green for "Approve" */
+}
+
+table button:last-of-type {
+  background-color: #f44336; /* Red for "Reject" */
+}
+
+/* Specific column in case buttons are in a specific <td> */
+td button {
+  font-weight: bold; /* Makes the button text bold */
+}
